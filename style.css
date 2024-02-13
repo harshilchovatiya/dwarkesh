@@ -6,15 +6,7 @@ body {
     color: #002336;
 }
 
-/* header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #002336;
-    padding: 10px 6em;
-} */
-
-header{
+header {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -22,10 +14,15 @@ header{
     top: 0;
     left: 0;
     width: 85%;
-    z-index: 1000; 
+    z-index: 1000;
     background-color: #002336;
     padding: 30px 6em;
 }
+
+header.hide {
+    display: none;
+}
+
 
 .logo {
     font-size: 24px;
@@ -85,6 +82,7 @@ nav a {
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 999;
     background-color: #002336;
     padding: 50px;
     box-sizing: border-box;
@@ -106,21 +104,26 @@ nav a {
     font-weight: bold;
     font-size: 20px;
 }
+
 .mobile-menu.show {
     display: block;
 }
 
 @media screen and (max-width: 768px) {
+    .logo {
+        width: 10%;
+    }
+
     nav {
-        display: none; 
+        display: none;
     }
 
     .hamburger-menu {
-        display: block; 
+        display: block;
     }
 
     .mobile-menu.show {
-        display: block; 
+        display: block;
     }
 }
 
@@ -638,15 +641,17 @@ nav a {
 .rating .star {
     display: inline-block;
 }
+
 @media screen and (max-width: 480px) {
-    .testimonial-slider{
+    .testimonial-slider {
         flex-direction: column;
         align-items: center;
     }
-    .testimonial-card{
+
+    .testimonial-card {
         width: auto;
-         margin-bottom: 20px;
-         margin-right: 0px;
+        margin-bottom: 20px;
+        margin-right: 0px;
     }
 }
 

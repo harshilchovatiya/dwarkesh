@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    const header = document.querySelector('header');
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const mobileMenu = document.querySelector('.mobile-menu');
     const closeBtn = document.querySelector('.close-btn');
@@ -8,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     hamburgerMenu.addEventListener('click', function () {
         mobileMenu.classList.toggle('show');
+        header.classList.toggle('hide');
         body.classList.toggle('menu-open');
 
     });
@@ -15,12 +17,14 @@ document.addEventListener('DOMContentLoaded', function () {
     mobileMenuItems.forEach(function (menuItem) {
         menuItem.addEventListener('click', function () {
             mobileMenu.classList.remove('show');
+            body.classList.remove('menu-open');
+            header.classList.remove('hide');
         });
     });
     closeBtn.addEventListener('click', function () {
         mobileMenu.classList.remove('show');
         body.classList.remove('menu-open');
-
+        header.classList.remove('hide');
     });
 
     function countUp(targetElement, start, end, duration) {
