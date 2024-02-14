@@ -788,6 +788,7 @@ nav a {
     }
 
     .footer {
+        column-gap: 30%;
         padding: 30px 20px;
         justify-content: start;
     }
@@ -796,4 +797,18 @@ nav a {
         padding: 10px;
         margin-top: 0px;
     }
+}
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+section {
+    animation: zoomIn 1s ease-out; 
 }

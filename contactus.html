@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/css/contact.css">
+    <title>Contact Us</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="src/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="src/favicon_io/site.webmanifest">
+</head>
+
+<body>
+    <header>
+        <div class="logo">Dwarkesh</div>
+        <div class="hamburger-menu">&#9776;</div>
+
+        <nav>
+            <ul>
+                <li><a class="scroll-link" href="index.html">Home</a></li>
+                <li><a class="scroll-link" href="index.html#about">About</a></li>
+                <li><a class="scroll-link" href="#project">Project</a></li>
+                <li><a class="scroll-link" href="contactus.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="logo">Dwarkesh</div>
+            <div class="close-btn">&times;</div>
+        </div>
+        <ul>
+            <li><a class="scroll-link" href="#home">Home</a></li>
+            <li><a class="scroll-link" href="index.html#about">About</a></li>
+            <li><a class="scroll-link" href="index.html#services">Project</a></li>
+            <li><a class="scroll-link" href="/">Contact</a></li>
+        </ul>
+    </div>
+
+
+    <div class="container">
+        <section class="title-section">
+            <div class="title-bg"></div>
+            <div class="title-text">
+                <h2>Contact Us</h2>
+                <p>Your Trusted Partner in Construction Projects</p>
+            </div>
+        </section>
+        <section class="contact-section">
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238133.18800756568!2d72.65748445425247!3d21.159120355995483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04e59411d1563%3A0xfe4558290938b042!2sSurat%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1707893670256!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                
+            </div>
+            <div class="contact-form">
+                <h2>Contact Us</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number:</label>
+                            <input type="tel" id="phone" name="phone" required>
+                            <div id="phoneCountFeedback">(0/10)</div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject:</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                    </div>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+    </div>
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="footer-section company-info">
+            <h2>Company Name</h2>
+            <p>Tagline goes here</p>
+            <p>Description goes here</p>
+        </div>
+        <div class="footer-section useful-links">
+            <h2>Useful Links</h2>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Projects</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section contact-info">
+            <h2>Contact Us</h2>
+            <p>123 Street, Cityville, Country</p>
+            <p>Phone: +123 456 789</p>
+            <p>Email: info@example.com</p>
+        </div>
+    </footer>
+    <div class="copyright">
+        <p>&copy; 2024 Dwarkesh Construction. All rights reserved.</p>
+    </div>
+    <script src="src/js/contact.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

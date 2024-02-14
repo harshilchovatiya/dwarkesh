@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    padding-top: 80px;
+}
+.title-section {
+    position: relative;
+    height: 400px; 
+    overflow: hidden;
+}
+
+.title-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://img.freepik.com/free-photo/new-york-city-downtown-sunset_649448-2977.jpg?size=626&ext=jpg&ga=GA1.1.911366663.1706848066&semt=ais'); 
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.5); 
+}
+
+.title-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+
+.title-text h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.title-text p {
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* padding: 20px; */
+}
+
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.map-container {
+    flex: 1;
+    height: 450px;
+}
+
+.contact-form {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+h2 {
+    color: #F99B02;
+}
+
+form {
+    display: grid;
+    gap: 10px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 85%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #F99B02;
+    color: #FDFDFD;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #002032;
+}
+
+@media screen and (max-width: 768px) {
+    .contact-section{
+        flex-direction: column-reverse;
+    }
+    .form-row {
+        display: inline;
+    }
+
+    .form-group {
+        padding: 6px 0;
+    }
+    .title-section {height: 250px;}
+
+    iframe{
+        width: 100%;
+    }
+
+}

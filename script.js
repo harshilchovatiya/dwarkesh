@@ -45,31 +45,31 @@ document.addEventListener('DOMContentLoaded', function () {
         updateCount();
     }
 
-    countUp('.counter1', 0, 123, 70); 
-    countUp('.counter2', 0, 10, 60); 
-    countUp('.counter3', 0, 5, 70);   
-    countUp('.counter4', 0, 20, 70);  
+    countUp('.counter1', 0, 123, 70);
+    countUp('.counter2', 0, 10, 60);
+    countUp('.counter3', 0, 5, 70);
+    countUp('.counter4', 0, 20, 70);
 
 
     const scrollLinks = document.querySelectorAll('a.scroll-link');
 
     for (const scrollLink of scrollLinks) {
-      scrollLink.addEventListener('click', smoothScroll);
+        scrollLink.addEventListener('click', smoothScroll);
     }
 
     function smoothScroll(e) {
-      e.preventDefault();
+        e.preventDefault();
 
-      const targetId = this.getAttribute('href').substring(1);
-      const targetElement = document.getElementById(targetId);
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
 
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 50, 
-          behavior: 'smooth',
-        });
-      }
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 50,
+                behavior: 'smooth',
+            });
+        }
     }
-  
 
+   
 });
