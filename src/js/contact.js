@@ -19,13 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const subject = document.getElementById('subject').value.trim();
         const message = document.getElementById('message').value.trim();
 
-        // Print form values to console
-        console.log('Name:', name);
-        console.log('Phone Number:', phoneNumber);
-        console.log('Email:', email);
-        console.log('Subject:', subject);
-        console.log('Message:', message);
-
+        submitForm(name,phoneNumber,email,subject,message);
         // Reset the form
         contactForm.reset();
     });
@@ -49,3 +43,29 @@ document.addEventListener('DOMContentLoaded', function () {
         return /^\d{10}$/.test(phoneNumber);
     }
 });
+function submitForm(name, phoneNumber, email, subject, message) {
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleString();
+    const formData = `Date and Time: ${formattedDate}\nname: ${name}\nEmail: ${email}\nPhone Number: ${phoneNumber}\nSubject: ${subject}\nMessage: ${message}`;
+    console.log(formData);
+    telegramMessage(formData);
+}
+
+function telegramMessage(formData) {
+    const botToken = '6580613461:AAFFrCbdwwKrF8sXXoSLb3JOJLcrVecAwuY';
+    const channelID = '-1002043512168';
+
+    fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${channelID}&text=${encodeURIComponent(formData)}`, {
+        method: 'GET',
+    })
+        .then(response => {
+            if (!response.ok) {
+                console.error('Error sending message to Telegram:', response.statusText);
+                alert('Error sending message. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error sending message to Telegram:', error);
+            alert('Error sending message. Please try again.');
+        });
+}

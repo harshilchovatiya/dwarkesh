@@ -44,10 +44,10 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    /* padding: 20px; */
 }
 
 .contact-section {
+    margin-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -61,7 +61,7 @@ body {
 .contact-form {
     flex: 1;
     padding: 20px;
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; */
     border-radius: 10px;
 }
 

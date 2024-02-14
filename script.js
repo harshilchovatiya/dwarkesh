@@ -51,25 +51,5 @@ document.addEventListener('DOMContentLoaded', function () {
     countUp('.counter4', 0, 20, 70);
 
 
-    const scrollLinks = document.querySelectorAll('a.scroll-link');
-
-    for (const scrollLink of scrollLinks) {
-        scrollLink.addEventListener('click', smoothScroll);
-    }
-
-    function smoothScroll(e) {
-        e.preventDefault();
-
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 50,
-                behavior: 'smooth',
-            });
-        }
-    }
-
-   
+     
 });
