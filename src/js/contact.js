@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return /^\d{10}$/.test(phoneNumber);
     }
 });
+
 function submitForm(name, phoneNumber, email, subject, message) {
     const currentDate = new Date();
     const formattedDate = currentDate.toLocaleString();
