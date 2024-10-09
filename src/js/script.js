@@ -50,6 +50,54 @@ document.addEventListener('DOMContentLoaded', function () {
     countUp('.counter3', 0, 5, 70);
     countUp('.counter4', 0, 20, 70);
 
+    const testimonialWrapper = document.querySelector('.testimonial-wrapper');
+const prevButton = document.getElementById('prevButton');
+const nextButton = document.getElementById('nextButton');
+
+let isDragging = false;
+let startX;
+let scrollLeft;
+
+// Function to handle the drag start
+function dragStart(e) {
+    isDragging = true;
+    startX = e.pageX || e.touches[0].pageX; // Get the starting position
+    scrollLeft = testimonialWrapper.scrollLeft; // Get current scroll position
+}
+
+// Function to handle the drag move
+function dragMove(e) {
+    if (!isDragging) return; // Do nothing if not dragging
+    e.preventDefault(); // Prevent default behavior
+    const x = e.pageX || e.touches[0].pageX; // Get the current position
+    const walk = (x - startX) * 1; // Calculate distance moved
+    testimonialWrapper.scrollLeft = scrollLeft - walk; // Set new scroll position
+}
+
+// Function to handle the drag end
+function dragEnd() {
+    isDragging = false; // Reset dragging flag
+}
+
+// Attach mouse/touch events to the testimonial wrapper
+testimonialWrapper.addEventListener('mousedown', dragStart);
+testimonialWrapper.addEventListener('mousemove', dragMove);
+testimonialWrapper.addEventListener('mouseup', dragEnd);
+testimonialWrapper.addEventListener('mouseleave', dragEnd);
+
+// Touch events for mobile
+testimonialWrapper.addEventListener('touchstart', dragStart);
+testimonialWrapper.addEventListener('touchmove', dragMove);
+testimonialWrapper.addEventListener('touchend', dragEnd);
+
+// Navigation buttons functionality
+nextButton.addEventListener('click', () => {
+    testimonialWrapper.scrollLeft += testimonialWrapper.clientWidth; // Scroll right
+});
+
+prevButton.addEventListener('click', () => {
+    testimonialWrapper.scrollLeft -= testimonialWrapper.clientWidth; // Scroll left
+});
 
      
 });
