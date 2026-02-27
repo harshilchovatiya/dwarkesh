@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://harshilchovatiya.github.io/dwarkesh/sitemap.xml
