@@ -8,7 +8,7 @@
     <title>Dwarkesh Construction | Premium Building Solutions in Surat, Gujarat</title>
     <!-- SEO Meta Tags -->
     <meta name="description"
-        content="Dwarkesh Construction � Surat's trusted construction company with 10+ years of excellence. Residential, commercial, renovation & interior services across Gujarat." />
+        content="Dwarkesh Construction - Surat's trusted construction company with 10+ years of excellence. Residential, commercial, renovation & interior services across Gujarat." />
     <meta name="keywords"
         content="construction company Surat, residential construction Gujarat, commercial construction Surat, building contractor Surat, renovation Surat, Dwarkesh Construction" />
     <meta name="author" content="Dwarkesh Construction" />
@@ -85,6 +85,134 @@
             },
         }
     </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Scroll progress bar */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, #e09f3e, #f5c96e);
+            z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        /* Reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.slide-left {
+            transform: translateX(-50px);
+        }
+
+        .reveal.slide-right {
+            transform: translateX(50px);
+        }
+
+        .reveal.scale {
+            transform: scale(0.88);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Staggered children */
+        .stagger-children>* {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .stagger-children.visible>*:nth-child(1) {
+            opacity: 1;
+            transform: none;
+            transition-delay: 0s;
+        }
+
+        .stagger-children.visible>*:nth-child(2) {
+            opacity: 1;
+            transform: none;
+            transition-delay: 0.15s;
+        }
+
+        .stagger-children.visible>*:nth-child(3) {
+            opacity: 1;
+            transform: none;
+            transition-delay: 0.3s;
+        }
+
+        .stagger-children.visible>*:nth-child(4) {
+            opacity: 1;
+            transform: none;
+            transition-delay: 0.45s;
+        }
+
+        .stagger-children.visible>*:nth-child(5) {
+            opacity: 1;
+            transform: none;
+            transition-delay: 0.6s;
+        }
+
+        .stagger-children.visible>*:nth-child(6) {
+            opacity: 1;
+            transform: none;
+            transition-delay: 0.75s;
+        }
+
+        /* Hero parallax */
+        #hero-bg {
+            will-change: transform;
+        }
+
+        /* Floating badge */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .float-anim {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Glow on primary text */
+        .text-glow {
+            text-shadow: 0 0 40px rgba(224, 159, 62, 0.5);
+        }
+
+        /* Counter shine */
+        @keyframes countup-shine {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .counter-done {
+            animation: countup-shine 0.4s ease;
+        }
+    </style>
 </head>
 
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
@@ -127,50 +255,51 @@
                     </div>
                     <div
                         class="relative z-10 max-w-[960px] px-6 text-center text-white flex flex-col items-center gap-8">
-                        <h1 class="text-4xl md:text-7xl font-black leading-tight tracking-tight">
-                            Building Dreams with Trust for <span class="text-primary text-glow">Over 10 Years</span>
+                        <h1 class="text-4xl md:text-7xl font-black leading-tight tracking-tight reveal">
+                            Building Dreams with Trust for <span class="text-primary text-glow">Over 15 Years</span>
                         </h1>
                         <p class="text-lg md:text-xl font-light max-w-2xl text-slate-200">
                             Premier construction solutions for corporate and residential landmarks in Surat, Gujarat. We
                             combine innovative engineering with timeless craftsmanship.
                         </p>
-                        <div class="flex flex-col sm:flex-row gap-4 mt-4">
-                            <button
+                        <div class="flex flex-col sm:flex-row gap-4 mt-4 reveal">
+                            <a href="contactus.html"
                                 class="flex min-w-[200px] items-center justify-center rounded-lg h-14 px-8 bg-primary text-white text-lg font-bold shadow-xl hover:scale-105 transition-transform">
                                 Get Free Consultation
-                            </button>
-                            <button
+                            </a>
+                            <a href="portfolio.html"
                                 class="flex min-w-[200px] items-center justify-center rounded-lg h-14 px-8 bg-white/10 backdrop-blur-sm border border-white/30 text-white text-lg font-bold hover:bg-white/20 transition-all">
                                 View Projects
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </section>
                 <section class="px-6 md:px-20 -mt-16 relative z-20">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
                         <div
-                            class="flex flex-col gap-3 rounded-xl p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl">
+                            class="flex flex-col gap-3 rounded-xl p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all">
                             <div class="flex items-center gap-4">
                                 <span class="material-symbols-outlined text-4xl text-primary">history</span>
-                                <p class="text-slate-900 dark:text-slate-100 tracking-tight text-4xl font-black">10+</p>
+                                <p class="text-slate-900 dark:text-slate-100 tracking-tight text-4xl font-black"
+                                    data-counter="15" data-suffix="+">15+</p>
                             </div>
                             <p class="text-slate-500 dark:text-slate-400 text-lg font-medium">Years of Excellence</p>
                         </div>
                         <div
-                            class="flex flex-col gap-3 rounded-xl p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl">
+                            class="flex flex-col gap-3 rounded-xl p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all">
                             <div class="flex items-center gap-4">
                                 <span class="material-symbols-outlined text-4xl text-primary">apartment</span>
-                                <p class="text-slate-900 dark:text-slate-100 tracking-tight text-4xl font-black">123+
-                                </p>
+                                <p class="text-slate-900 dark:text-slate-100 tracking-tight text-4xl font-black"
+                                    data-counter="123" data-suffix="+">123+</p>
                             </div>
                             <p class="text-slate-500 dark:text-slate-400 text-lg font-medium">Projects Delivered</p>
                         </div>
                         <div
-                            class="flex flex-col gap-3 rounded-xl p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl">
+                            class="flex flex-col gap-3 rounded-xl p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all">
                             <div class="flex items-center gap-4">
                                 <span class="material-symbols-outlined text-4xl text-primary">sentiment_satisfied</span>
-                                <p class="text-slate-900 dark:text-slate-100 tracking-tight text-4xl font-black">100%
-                                </p>
+                                <p class="text-slate-900 dark:text-slate-100 tracking-tight text-4xl font-black"
+                                    data-counter="100" data-suffix="%">100%</p>
                             </div>
                             <p class="text-slate-500 dark:text-slate-400 text-lg font-medium">Satisfied Clients</p>
                         </div>
@@ -184,7 +313,7 @@
                         <h2 class="text-3xl md:text-5xl font-black text-slate-900 dark:text-slate-100 leading-tight">
                             Expertise Rooted in Decades of Experience</h2>
                         <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
-                            At Dwarkesh Construction, we offer over a decade of expertise, delivering top-notch
+                            At Dwarkesh Construction, we offer over 15 years of expertise, delivering top-notch
                             construction services with a focus on quality, innovation, and client satisfaction. Our
                             commitment to quality and transparency has made us a trusted partner for both commercial
                             ventures and private residences.
@@ -621,7 +750,7 @@
                 </div>
                 <div
                     class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p class="text-slate-600 text-xs">� 2024 Dwarkesh Construction. All rights reserved.</p>
+                    <p class="text-slate-600 text-xs">- 2024 Dwarkesh Construction. All rights reserved.</p>
                     <div class="flex gap-6 text-xs">
                         <a class="text-slate-600 hover:text-white transition-colors" href="#">Privacy Policy</a>
                         <a class="text-slate-600 hover:text-white transition-colors" href="#">Terms of Service</a>
@@ -631,5 +760,120 @@
         </div>
     </div>
 </body>
+
+<!-- ============================================================
+     ADVANCED ANIMATION ENGINE
+     ============================================================ -->
+<script>
+        (function () {
+            // ① Scroll progress bar
+            var bar = document.createElement('div');
+            bar.id = 'scroll-progress';
+            document.body.prepend(bar);
+            window.addEventListener('scroll', function () {
+                var pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+                bar.style.width = Math.min(pct, 100) + '%';
+            }, { passive: true });
+
+            // ② Intersection Observer – reveal on scroll
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('visible');
+                        // Animate counters inside revealed elements
+                        e.target.querySelectorAll('[data-counter]').forEach(animateCounter);
+                        io.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            // Auto-attach reveal class to major sections / cards
+            var selectors = [
+                'section > div > div',   // grid cards
+                'section > .reveal',
+                '.reveal'
+            ];
+            document.querySelectorAll(
+                'section, h2, h3, .group, [class*="rounded-xl"], [class*="rounded-2xl"], [class*="rounded-3xl"]'
+            ).forEach(function (el) {
+                if (!el.classList.contains('reveal') && !el.classList.contains('stagger-children')) {
+                    el.classList.add('reveal');
+                }
+                io.observe(el);
+            });
+            // Always observe stagger containers
+            document.querySelectorAll('.stagger-children, .reveal').forEach(function (el) { io.observe(el); });
+
+            // ③ Animated number counters
+            function animateCounter(el) {
+                if (el.dataset.counted) return;
+                el.dataset.counted = '1';
+                var target = parseInt(el.dataset.counter, 10);
+                var suffix = el.dataset.suffix || '';
+                var start = 0;
+                var duration = 1400;
+                var step = 16;
+                var increment = target / (duration / step);
+                var timer = setInterval(function () {
+                    start += increment;
+                    if (start >= target) {
+                        start = target;
+                        clearInterval(timer);
+                        el.classList.add('counter-done');
+                    }
+                    el.textContent = Math.floor(start) + suffix;
+                }, step);
+            }
+
+            // ④ Hero parallax on scroll
+            var heroBg = document.querySelector('#hero-bg') ||
+                document.querySelector('section:first-of-type [style*="background-image"]') ||
+                document.querySelector('[data-alt="Modern glass skyscraper"]');
+            if (heroBg) {
+                heroBg.id = 'hero-bg';
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY < window.innerHeight) {
+                        heroBg.style.transform = 'translateY(' + (window.scrollY * 0.35) + 'px)';
+                    }
+                }, { passive: true });
+            }
+
+            // ⑤ Navbar shrink + active link highlight
+            var header = document.querySelector('header');
+            var navLinks = document.querySelectorAll('nav a');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 60) {
+                    header.classList.add('py-2');
+                    header.classList.remove('py-4');
+                } else {
+                    header.classList.add('py-4');
+                    header.classList.remove('py-2');
+                }
+            }, { passive: true });
+            // Highlight current page link
+            var page = location.pathname.split('/').pop() || 'index.html';
+            navLinks.forEach(function (a) {
+                if (a.getAttribute('href') === page) {
+                    a.classList.add('text-primary', 'font-bold');
+                }
+            });
+
+            // ⑥ Smooth hover tilt on cards
+            document.querySelectorAll('.group').forEach(function (card) {
+                card.addEventListener('mousemove', function (e) {
+                    var rect = card.getBoundingClientRect();
+                    var x = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
+                    var y = ((e.clientY - rect.top) / rect.height - 0.5) * -8;
+                    card.style.transform = 'rotateY(' + x + 'deg) rotateX(' + y + 'deg) translateY(-4px)';
+                    card.style.transition = 'transform 0.1s ease';
+                });
+                card.addEventListener('mouseleave', function () {
+                    card.style.transform = '';
+                    card.style.transition = 'transform 0.4s ease';
+                });
+            });
+
+        })();
+</script>
 
 </html>
