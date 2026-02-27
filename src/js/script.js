@@ -50,54 +50,92 @@ document.addEventListener('DOMContentLoaded', function () {
     countUp('.counter3', 0, 5, 70);
     countUp('.counter4', 0, 20, 70);
 
-    const testimonialWrapper = document.querySelector('.testimonial-wrapper');
+    const wrapper = document.querySelector('.testimonial-wrapper');
+    let currentIndex = 0;
+const cards = document.querySelectorAll('.testimonial-card');
 const prevButton = document.getElementById('prevButton');
 const nextButton = document.getElementById('nextButton');
+const totalCards = cards.length;
 
-let isDragging = false;
-let startX;
-let scrollLeft;
+// Function to update which card is active (centered)
+function updateActiveCard() {
+    cards.forEach((card, index) => {
+        // Reset all cards to their default state
+        card.classList.remove('active');
+        card.style.opacity = "0.5";
+        card.style.transform = "scale(0.9)";
+        updateDots();
+    });
 
-// Function to handle the drag start
-function dragStart(e) {
-    isDragging = true;
-    startX = e.pageX || e.touches[0].pageX; // Get the starting position
-    scrollLeft = testimonialWrapper.scrollLeft; // Get current scroll position
+    // Set the current card as active
+    const activeCard = cards[currentIndex];
+    activeCard.classList.add('active');
+    activeCard.style.opacity = "1";
+    activeCard.style.transform = "scale(1.2)";
 }
 
-// Function to handle the drag move
-function dragMove(e) {
-    if (!isDragging) return; // Do nothing if not dragging
-    e.preventDefault(); // Prevent default behavior
-    const x = e.pageX || e.touches[0].pageX; // Get the current position
-    const walk = (x - startX) * 1; // Calculate distance moved
-    testimonialWrapper.scrollLeft = scrollLeft - walk; // Set new scroll position
-}
+// Initial activation of the first card
+updateActiveCard();
 
-// Function to handle the drag end
-function dragEnd() {
-    isDragging = false; // Reset dragging flag
-}
-
-// Attach mouse/touch events to the testimonial wrapper
-testimonialWrapper.addEventListener('mousedown', dragStart);
-testimonialWrapper.addEventListener('mousemove', dragMove);
-testimonialWrapper.addEventListener('mouseup', dragEnd);
-testimonialWrapper.addEventListener('mouseleave', dragEnd);
-
-// Touch events for mobile
-testimonialWrapper.addEventListener('touchstart', dragStart);
-testimonialWrapper.addEventListener('touchmove', dragMove);
-testimonialWrapper.addEventListener('touchend', dragEnd);
-
-// Navigation buttons functionality
-nextButton.addEventListener('click', () => {
-    testimonialWrapper.scrollLeft += testimonialWrapper.clientWidth; // Scroll right
-});
-
+// Loop functionality: Slide to the previous card
 prevButton.addEventListener('click', () => {
-    testimonialWrapper.scrollLeft -= testimonialWrapper.clientWidth; // Scroll left
+    if (currentIndex > 0) {
+        currentIndex--;
+    } else {
+        currentIndex = totalCards - 1; // Loop back to the last card
+    }
+    updateActiveCard();
 });
+
+// Loop functionality: Slide to the next card
+nextButton.addEventListener('click', () => {
+    if (currentIndex < totalCards - 1) {
+        currentIndex++;
+    } else {
+        currentIndex = 0; // Loop back to the first card
+    }
+    updateActiveCard();
+});
+
+// Auto-slide functionality to continuously move the cards
+setInterval(() => {
+    if (currentIndex < totalCards - 1) {
+        currentIndex++;
+    } else {
+        currentIndex = 0; // Loop back to the first card
+    }
+    updateActiveCard();
+}, 4000); // Slides every 4 seconds (adjust as needed)
+
+function cloneCards() {
+    const firstCard = cards[0].cloneNode(true);
+    const lastCard = cards[cards.length - 1].cloneNode(true);
+    document.querySelector('.testimonial-wrapper').appendChild(firstCard);
+    document.querySelector('.testimonial-wrapper').insertBefore(lastCard, cards[0]);
+}
+
+cloneCards();
+
+function updateDots() {
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        if (index === currentIndex) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'ArrowLeft') {
+        prevButton.click();
+    } else if (event.key === 'ArrowRight') {
+        nextButton.click();
+    }
+});
+
+
 
      
 });

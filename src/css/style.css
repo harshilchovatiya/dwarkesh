@@ -620,6 +620,7 @@ nav a {
 .testimonial {
     background-color: #002032;
     padding: 100px 20px;
+    overflow: hidden;
 }
 
 .testimonial-content {
@@ -639,29 +640,97 @@ nav a {
 }
 
 .testimonial-slider {
+    position: relative;
     display: flex;
-    overflow: hidden; /* Change this to hidden */
-    position: relative; /* Add position relative */
+    justify-content: center; 
+    overflow: hidden;
+    padding: 20px 0;
 }
 
 .testimonial-wrapper {
     display: flex;
-    transition: transform 0.5s ease; /* Add transition for smooth sliding */
+    justify-content: center;
+    transition: transform 0.5s ease-in-out;
+    gap: 30px; /* Space between testimonial cards */
 }
 
 .testimonial-card {
-    width: 300px; /* Fixed width for each card */
+    min-width: 300px;
+    max-width: 300px;
+    flex-shrink: 0;
     padding: 20px;
     border-radius: 10px;
-    text-align: center;
     background-color: #FDFDFD;
+    text-align: center;
     color: #002032;
-    margin-right: 15px;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease;
+    transform-style: preserve-3d;
+    border: 2px solid transparent;
+    opacity: 0.5;
+    transform: scale(0.9); /* Default smaller size */
 }
 
-.testimonial-card:last-child {
-    margin-right: 0;
+/* Active card styling */
+.testimonial-card.active {
+    transform: scale(1.2) translateZ(50px);
+    opacity: 1; /* Full opacity for the active card */
+    border-color: #F99B02;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #F99B02 0%, #FFCD57 100%);
+    color: white;
 }
+
+.testimonial-card:not(.active) {
+    transform: scale(0.9) rotateY(10deg);
+}
+
+.rating {
+    color: #F99B02;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Slider controls */
+.slider-controls {
+    margin-top: 20px;
+}
+
+.slider-button {
+    background-color: #F99B02;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.slider-button:hover {
+    background-color: #F7A400;
+}
+
+/* Handle the overflow properly */
+.testimonial-slider::before,
+.testimonial-slider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    z-index: 1;
+}
+
+.testimonial-slider::before {
+    left: 0;
+    background: linear-gradient(to right, #002032, transparent);
+}
+
+.testimonial-slider::after {
+    right: 0;
+    background: linear-gradient(to left, #002032, transparent);
+}
+
+
 
 .testimonial-card img {
     max-width: 60px;
@@ -672,43 +741,49 @@ nav a {
     border: 2px solid #F99B02;
     margin-bottom: 10px;
 }
-
-.rating {
-    color: #F99B02;
-    font-size: 20px;
-    margin-bottom: 10px;
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
 }
 
-.slider-controls {
-    margin-top: 20px; /* Add margin for better spacing */
-}
-
-.slider-button {
+.dot.active {
     background-color: #F99B02;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 5px; /* Space between buttons */
 }
 
-.slider-button:hover {
-    background-color: #F7A400; /* Button hover effect */
-}
 
-@media screen and (max-width: 480px) {
-    .testimonial-slider {
-        flex-direction: column;
-        align-items: center;
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .testimonial-wrapper {
+        gap: 15px; /* Decrease gap on mobile */
     }
 
     .testimonial-card {
-        width: auto;
-        margin-bottom: 20px;
-        margin-right: 0px;
+        min-width: 200px; /* Smaller cards for mobile */
+    }
+
+    .testimonial-card.active {
+        transform: scale(1.1); /* Slightly smaller scale */
     }
 }
+
+
+@media screen and (max-width: 480px) {
+    .testimonial-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .testimonial-card {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
 
 
 .quote-section {
