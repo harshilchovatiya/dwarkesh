@@ -320,4 +320,78 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+
+    /* ═══════════════════════════════════════════════════
+       FAQ ACCORDION (contactus.html)
+    ═══════════════════════════════════════════════════ */
+    function initFAQ() {
+        // Find all FAQ items — each is a div containing an h3 and a p
+        var faqItems = document.querySelectorAll(
+            '.space-y-4 > div, [class*="faq"] div, section div.rounded-xl'
+        );
+        faqItems.forEach(function (item) {
+            var heading = item.querySelector('h3');
+            var answer  = item.querySelector('p');
+            var icon    = item.querySelector('.material-symbols-outlined');
+            if (!heading || !answer) return;
+
+            // Style the answer for animation
+            answer.style.overflow  = 'hidden';
+            answer.style.maxHeight = '0';
+            answer.style.opacity   = '0';
+            answer.style.transition= 'max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease';
+            answer.style.marginTop = '0';
+
+            // Make heading look clickable
+            heading.style.cursor = 'pointer';
+            heading.style.userSelect = 'none';
+
+            var open = false;
+            heading.addEventListener('click', function () {
+                open = !open;
+                if (open) {
+                    answer.style.maxHeight = answer.scrollHeight + 40 + 'px';
+                    answer.style.opacity   = '1';
+                    answer.style.marginTop = '0.75rem';
+                    if (icon) { icon.textContent = 'expand_less'; icon.style.transform = 'rotate(0deg)'; }
+                    item.style.borderColor = 'rgba(224,159,62,0.5)';
+                } else {
+                    answer.style.maxHeight = '0';
+                    answer.style.opacity   = '0';
+                    answer.style.marginTop = '0';
+                    if (icon) { icon.textContent = 'expand_more'; icon.style.transform = 'rotate(0deg)'; }
+                    item.style.borderColor = '';
+                }
+                // Close other items
+                faqItems.forEach(function (other) {
+                    if (other === item) return;
+                    var otherAns  = other.querySelector('p');
+                    var otherIcon = other.querySelector('.material-symbols-outlined');
+                    if (otherAns) {
+                        otherAns.style.maxHeight = '0';
+                        otherAns.style.opacity   = '0';
+                        otherAns.style.marginTop = '0';
+                    }
+                    if (otherIcon) otherIcon.textContent = 'expand_more';
+                    other.style.borderColor = '';
+                });
+                // Since we closed others, only current is open
+                faqItems.forEach(function(other){ if(other !== item) { other._faqOpen = false; } });
+                item._faqOpen = open;
+            });
+        });
+
+        // Open first item by default
+        if (faqItems.length > 0) {
+            var firstH = faqItems[0].querySelector('h3');
+            if (firstH) firstH.click();
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initFAQ);
+    } else {
+        initFAQ();
+    }
+
 })();
